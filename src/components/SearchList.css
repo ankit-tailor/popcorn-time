@@ -1,0 +1,40 @@
+.search-list {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 1px gray;
+  height: 8rem;
+  overflow: hidden;
+}
+
+.search-list > img {
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 6rem;
+  height: 8rem;
+  margin-right: 2rem;
+}
+
+.search-list__info > p {
+  color: gray;
+}
+
+.search-list__info > h3 {
+  cursor: pointer;
+}
+
+.search-list__info > p:nth-child(odd) {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .search-list {
+    width: 95%;
+    /* align-items: flex-start; */
+  }
+}
