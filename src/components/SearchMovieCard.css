@@ -1,0 +1,41 @@
+.searchMovieCard {
+  display: flex;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+}
+
+.searchMovieCard__details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 2rem;
+}
+
+.searchMovieCard__details > img {
+  width: 100%;
+  height: 90%;
+  border-radius: 15px;
+}
+
+.searchMovieCard:hover {
+  border-radius: 15px;
+  transform: scale(1.05);
+  transition: smooth;
+}
+
+.searchMovieCard__bookmark {
+  display: flex;
+  margin-top: 0.6rem;
+  justify-content: space-between;
+}
+
+.searchMovieCard__bookmark > p {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 400px) {
+  .searchMovieCard__details {
+    margin-right: 1rem;
+  }
+}
