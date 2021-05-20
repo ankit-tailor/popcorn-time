@@ -30,7 +30,6 @@
 }
 
 .search-btn:hover {
-  color: black;
   background-color: #05315a;
 }
 
@@ -56,9 +55,11 @@
   margin-top: 2.8rem;
   font-weight: 900;
   color: white;
+  cursor: pointer;
 }
 
 .container__banner > h4 {
   font-weight: 900;
   color: white;
+  cursor: pointer;
 }
