@@ -11,7 +11,7 @@ const useSearch = (query, page_no) => {
     (async () => {
       if (query !== "") {
         setLoading(true);
-        setError(false);
+        setError(true);
       }
       const searchResult = await axios.get(`${baseUrl}/search/movie`, {
         params: {
@@ -27,14 +27,15 @@ const useSearch = (query, page_no) => {
       const {
         data: { results },
       } = searchResult;
-      console.log(results);
+      // console.log(results);
       setData(results);
     })();
-  }, [query]);
+  }, [query, page_no]);
 
   return {
     data,
     loading,
+    error,
   };
 };
 
