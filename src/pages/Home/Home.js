@@ -16,7 +16,11 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const { data: upcoming, bannerInfo } = useFetchHome("/movie/upcoming");
+  const {
+    data: upcoming,
+    bannerInfo,
+    loading: loader,
+  } = useFetchHome("/movie/upcoming");
   const { data: trending } = useFetchHome("/trending/movie/week");
   const { data: topRated } = useFetchHome("/movie/top_rated");
   const { data: searchList, loading } = useSearch(searchTerm);
@@ -32,6 +36,7 @@ function Home() {
 
   return (
     <div className="home">
+      {loader && <CircularProgress className="spinner" />}
       <Banner
         title={title}
         releaseDate={`Releases on ${release_date}`}
