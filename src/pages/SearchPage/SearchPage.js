@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import "./SearchPage.css";
 import SearchIcon from "@material-ui/icons/Search";
@@ -6,20 +6,37 @@ import useSearch from "../../hooks/useSearch";
 import { baseImageUrl } from "../../backend";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import SearchMovieCard from "../../components/SearchMovieCard";
+import { motion } from "framer-motion";
+import image_not_found from "../../assets/images/image_not_found.jpg";
+import Pagination from "@material-ui/lab/Pagination";
 
 function SearchPage() {
   const { searchTerm } = useParams();
   const [inputTerm, setInputTerm] = useState(searchTerm);
+  const [currentPage, setCurrentPage] = useState(1);
   //   console.log(inputTerm);
-  const { data: searchList, loading, error } = useSearch(inputTerm, 1);
+  const {
+    data: searchList,
+    loading,
+    totalPages,
+  } = useSearch(inputTerm, currentPage);
 
   if (inputTerm === "") {
     searchList.length = 0;
   }
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [searchList, setCurrentPage]);
+
   const handelSearch = (event) => {
     const searchItem = event.target.value;
     setInputTerm(searchItem);
+  };
+
+  const handelPageChange = (e, v) => {
+    // console.log(v);
+    setCurrentPage(v);
   };
 
   return (
@@ -34,20 +51,41 @@ function SearchPage() {
         />
       </div>
       {loading && <CircularProgress className="spinner" />}
-      {searchList.length === 0 && <h1>search item not found</h1>}
-      <div className="grid">
-        {searchList.map((movie) => (
-          <SearchMovieCard
-            key={movie.id}
-            posterUrl={
-              movie.poster_path
-                ? `${baseImageUrl}/w500/${movie.poster_path}`
-                : "https://previews.123rf.com/images/vectorknight/vectorknight1807/vectorknight180700074/105231216-upset-magnifying-glass-cute-not-found-symbol-and-unsuccessful-search-zoom-for-404-icon-no-suitable-r.jpg"
-            }
-            title={movie.title}
-          />
-        ))}
-      </div>
+      {!loading && searchList.length === 0 && <h1>search item not found</h1>}
+      {!loading && (
+        <>
+          {" "}
+          <motion.div
+            className="grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            {searchList.map((movie) => (
+              <SearchMovieCard
+                key={movie.id}
+                movieId={movie.id}
+                posterUrl={
+                  movie.poster_path
+                    ? `${baseImageUrl}/w500/${movie.poster_path}`
+                    : image_not_found
+                }
+                title={movie.title}
+              />
+            ))}
+          </motion.div>
+          {!loading && searchList.length > 0 && (
+            <div className="pagination">
+              <Pagination
+                className="pagination__pages"
+                color="primary"
+                count={totalPages}
+                page={currentPage}
+                onChange={handelPageChange}
+              />
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }
