@@ -1,0 +1,26 @@
+.actor {
+  /* display: flex; */
+  margin-left: 20px;
+  padding: 10px;
+  max-width: 10rem;
+  text-align: center;
+  background-color: #03203c;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.actor > img {
+  width: 10rem;
+  height: 15rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.actor > p:nth-child(even) {
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.actor > p:nth-child(odd) {
+  color: grey;
+}
