@@ -18,14 +18,14 @@ const useFetchHome = (endPointUrl) => {
       const {
         data: { results },
       } = trendingMovies;
-      let { backdrop_path, title, release_date } = results[
-        Math.floor(Math.random() * 20)
-      ];
+      let { backdrop_path, title, release_date, id } =
+        results[Math.floor(Math.random() * 20)];
       setData(results);
       setBannerInfo({
         title,
         release_date,
         backdrop_path,
+        id,
       });
     })();
   }, [endPointUrl]);
