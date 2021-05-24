@@ -5,7 +5,6 @@ import MenuOpenRoundedIcon from "@material-ui/icons/MenuOpenRounded";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorderRounded";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link } from "react-router-dom";
-import SearchIcon from "@material-ui/icons/Search";
 
 function Header({ className, handelSearch }) {
   const [clicked, setClicked] = useState(false);
@@ -39,7 +38,7 @@ function Header({ className, handelSearch }) {
             />
           </Link>
           <Link className="link" to="/">
-            <h4 class="brand__heading" onClick={closeNavigationbar}>
+            <h4 className="brand__heading" onClick={closeNavigationbar}>
               PopCorn Time
             </h4>
           </Link>
@@ -57,7 +56,7 @@ function Header({ className, handelSearch }) {
             <p onClick={closeNavigationbar}>Top Rated</p>
           </Link>
           <Link className="link" to="/movies">
-            <p onClick={closeNavigationbar}>movies</p>
+            <p onClick={closeNavigationbar}>Movies</p>
           </Link>
           <Link className="link" to="/tvshows">
             <p onClick={closeNavigationbar}>Tv Shows</p>
