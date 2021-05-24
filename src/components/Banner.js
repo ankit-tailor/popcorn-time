@@ -2,7 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Banner.css";
 
-function Banner({ image, handelChange, searchTerm, title, releaseDate }) {
+function Banner({
+  image,
+  handelChange,
+  searchTerm,
+  title,
+  releaseDate,
+  movieId,
+}) {
   return (
     <div className="banner">
       <img src={image} alt="banner_image" />
@@ -14,12 +21,23 @@ function Banner({ image, handelChange, searchTerm, title, releaseDate }) {
             onChange={handelChange}
             value={searchTerm}
           />
-          <Link to={`/search/${searchTerm}`}>
-            <button className="search-btn">Search</button>
-          </Link>
+          {!searchTerm ? (
+            <button disabled={true} className="disabled search-btn">
+              Search
+            </button>
+          ) : (
+            <Link to={`/search/${searchTerm}`}>
+              <button className="search-btn">Search</button>
+            </Link>
+          )}
         </div>
-        <h1>{title}</h1>
-        <h4>{releaseDate}</h4>
+        <Link
+          style={{ textDecoration: "none", color: "white" }}
+          to={`/movie/${movieId}`}
+        >
+          <h1>{title}</h1>
+          <h4>{releaseDate}</h4>
+        </Link>
       </div>
     </div>
   );
