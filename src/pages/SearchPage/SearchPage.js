@@ -8,7 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import SearchMovieCard from "../../components/SearchMovieCard";
 import { motion } from "framer-motion";
 import image_not_found from "../../assets/images/image_not_found.jpg";
-import Pagination from "@material-ui/lab/Pagination";
+import CustomPagination from "../../components/CustomPagination";
 
 function SearchPage() {
   const { searchTerm } = useParams();
@@ -32,11 +32,6 @@ function SearchPage() {
   const handelSearch = (event) => {
     const searchItem = event.target.value;
     setInputTerm(searchItem);
-  };
-
-  const handelPageChange = (e, v) => {
-    // console.log(v);
-    setCurrentPage(v);
   };
 
   return (
@@ -74,15 +69,11 @@ function SearchPage() {
             ))}
           </motion.div>
           {!loading && searchList.length > 0 && (
-            <div className="pagination">
-              <Pagination
-                className="pagination__pages"
-                color="primary"
-                count={totalPages}
-                page={currentPage}
-                onChange={handelPageChange}
-              />
-            </div>
+            <CustomPagination
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+              totalPages={totalPages}
+            />
           )}
         </>
       )}
