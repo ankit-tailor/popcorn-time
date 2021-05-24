@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.pagination__pages {
+  margin: auto;
+  color: #03203c;
+}
