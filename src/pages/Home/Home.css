@@ -4,7 +4,7 @@
   margin-bottom: 20px;
 }
 
-.movieCards {
+.movieCardss {
   display: flex;
   flex-direction: row;
   object-fit: contain;
@@ -26,4 +26,11 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.next-icon {
+  position: relative;
+  top: 30%;
+  color: #03203c;
+  font-size: 4rem !important;
 }
