@@ -1,0 +1,132 @@
+.movie__header {
+  display: flex;
+  align-items: center;
+  background-color: #207398;
+  color: white;
+  padding: 0.8rem;
+}
+
+.movie__header > p {
+  font-weight: bold;
+}
+
+.back_icon {
+  font-size: 1.5rem !important;
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.progressbar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.movie__poster {
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  animation: 1s ease 0s 1 normal none running animateMovieinfo;
+  background-size: cover !important;
+  background-position: center center !important;
+  color: white;
+}
+
+.img-wrap {
+  margin: 2rem;
+  margin-top: 0;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  max-width: 1280px;
+  min-height: 450px;
+  margin: 0px auto;
+}
+
+.img-wrap img {
+  width: 300px;
+  border-radius: 10px;
+  float: left;
+}
+
+.movie__info {
+  padding: 40px;
+  overflow: hidden;
+}
+
+.movie__genre {
+  background-color: #f1f1f1;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 1px;
+  color: #000;
+}
+
+.movie__public {
+  display: flex;
+  margin-top: 30px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.vote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.movie__content {
+  display: flex;
+  background-color: #03203c;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.7rem;
+}
+
+.contentbar {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.contentbar__icon {
+  display: normal;
+}
+
+.details {
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.actors,
+.recommendations {
+  display: flex;
+  overflow-x: scroll;
+}
+
+@media (max-width: 768px) {
+  .img-wrap {
+    display: normal;
+  }
+  .img-wrap img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 310px) {
+  .contentbar__icon {
+    display: none !important;
+  }
+}
