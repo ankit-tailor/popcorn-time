@@ -63,3 +63,8 @@
   color: white;
   cursor: pointer;
 }
+
+.disabled,
+.disbaled:hover {
+  background-color: #758283;
+}
