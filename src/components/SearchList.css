@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-.search-list > img {
+.img-poster {
   cursor: pointer;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -20,16 +20,16 @@
   margin-right: 2rem;
 }
 
-.search-list__info > p {
+.search-list__info p {
   color: gray;
 }
 
-.search-list__info > h3 {
+.search-list__info h3 {
   cursor: pointer;
 }
 
-.search-list__info > p:nth-child(odd) {
-  margin-top: 1rem;
+.movie-release {
+  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 900px) {
